@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        PATH = "C:\\Program Files\\Java\\jdk-17\\bin;C:\\apache-maven\\bin;${env.PATH}"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -8,7 +11,7 @@ pipeline {
         }
         stage('Build & Test') {
             steps {
-                bat 'mvnw.cmd clean verify || mvn clean verify'
+                bat 'mvn clean verify'
             }
         }
         stage('Report') {
