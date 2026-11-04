@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build & Test') {
             steps {
-                bat 'mvn clean verify'
+                bat 'mvnw.cmd clean verify || mvn clean verify'
             }
         }
         stage('Report') {
